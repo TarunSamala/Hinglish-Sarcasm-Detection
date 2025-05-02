@@ -67,7 +67,3 @@ class FeatureExtractor:
         features.update({k: float(v) for k,v in self.get_sentiment_features(text).items()})
         features.update({k: int(v) for k,v in self.get_ngram_features(text).items()})
         return features
-
-# Note: Run once before first use to download VADER lexicon
-# import nltk
-# nltk.download('vader_lexicon')

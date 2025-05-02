@@ -91,12 +91,3 @@ def evaluate_and_save(model, X_test, y_test, model_name):
     print(f"\n{model_name} Classification Report:")
     print(pd.DataFrame(report).transpose().to_string(float_format='%.2f'))
     
-    # Confusion matrix
-    cm = confusion_matrix(y_test, y_pred)
-    plt.figure(figsize=(8, 6))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
-                xticklabels=['Non-Sarcastic', 'Sarcastic'],
-                yticklabels=['Non-Sarcastic', 'Sarcastic'])
-    plt.title(f'{model_name} Confusion Matrix\nThreshold: {getattr(model, "best_threshold", 0.5):.2f}')
-    plt.savefig(f'{model_name}_cm.png', bbox_inches='tight')
-    plt.close()
