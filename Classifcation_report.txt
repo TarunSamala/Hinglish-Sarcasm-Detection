@@ -1,0 +1,19 @@
+SVM Classification Report:
+               precision    recall  f1-score   support
+
+Non-Sarcastic       0.82      0.76      0.79       949
+    Sarcastic       0.23      0.31      0.26       101
+
+     accuracy                           0.68      1050
+    macro avg       0.53      0.53      0.53      1050
+ weighted avg       0.76      0.68      0.72      1050
+
+RandomForest Classification Report:
+               precision    recall  f1-score   support
+
+Non-Sarcastic       0.91      0.95      0.93       949
+    Sarcastic       0.45      0.31      0.37       101
+
+     accuracy                           0.88      1050
+    macro avg       0.68      0.63      0.65      1050
+ weighted avg       0.86      0.88      0.87      1050
