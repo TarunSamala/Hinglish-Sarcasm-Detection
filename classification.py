@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import numpy as np
+from sklearn.linear_model import LogisticRegression
 
 def train_classifier(X, y, model_type='svm'):
     smote = SMOTE(random_state=42, sampling_strategy=0.5)
@@ -40,6 +41,23 @@ def train_classifier(X, y, model_type='svm'):
             ))
         ])
         params = {'clf__max_features': ['sqrt', 'log2']}
+        
+    elif model_type == 'lr':
+        pipeline = Pipeline([
+            ('smote', smote),
+            ('scaler', StandardScaler()),
+            ('clf', LogisticRegression(
+                class_weight={0:1, 1:15},
+                solver='saga',
+                penalty='l2',
+                max_iter=1000,
+                random_state=42
+            ))
+        ])
+        params = {
+            'clf__C': [0.01, 0.1, 1, 10],
+            'clf__penalty': ['l1', 'l2']
+        }
     
     # Threshold tuning
     X_train, X_val, y_train, y_val = train_test_split(

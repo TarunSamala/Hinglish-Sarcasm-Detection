@@ -65,6 +65,10 @@ def main():
     print("\nTraining Random Forest...")
     rf_model = train_classifier(X_train, y_train, 'rf')
     evaluate_and_save(rf_model, X_test, y_test, 'RandomForest')
+    
+    print("\nTraining Logistic Regression...")
+    lr_model = train_classifier(X_train, y_train, 'lr')
+    evaluate_and_save(lr_model, X_test, y_test, 'LogisticRegression')
 
 if __name__ == "__main__":
     main()
